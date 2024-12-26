@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #0d1015;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: 'Poppins', sans-serif;
+}
+
+.favorite{
+  /* display: none; */
+ cursor: pointer;
+  position: absolute;
+  bottom: -18px;
+  right: -18px;
+}
+
+
+
+
+
