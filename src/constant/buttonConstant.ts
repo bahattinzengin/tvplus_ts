@@ -1,24 +1,30 @@
-import { ButtonConstantType } from "../components/Header";
+import { ButtonConstantType } from "../type/Type";
+
 
 
 export const buttonConstant:ButtonConstantType[]=[
     {
         id:1 ,
+        name:'Home',
+        path:'/'
+    },
+    {
+        id:2 ,
         name:'TopRated',
         path:'/rated'
     },
     {
-        id:2 ,
+        id:3 ,
         name:'Populer',
         path:'/populer'
     },
     {
-        id:3 ,
+        id:4 ,
         name:'Trending',
         path:'/trending'
     },
     {
-        id:4 ,
+        id:5 ,
         name:'My Favorite Movies',
         path:'/favorite'
     },

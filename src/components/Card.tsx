@@ -53,7 +53,7 @@ const Card = ({ item }: ItemPropsType) => {
 
 
   return (
-    <div className="flex flex-col relative w-[250px] h-[300px] border border-gray-700 rounded-md">
+    <div className="flex flex-col relative w-[250px] h-[300px] border border-gray-700 rounded-md ">
       <Link to={`/detail/${item.id}`}>
 
         <div className="p-0 rounded-md">
