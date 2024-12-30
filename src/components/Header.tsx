@@ -34,7 +34,7 @@ const Header = () => {
       </div>
 
 
-      <div className="w-3/5 md:w-2/5 lg:w-1/3 px-4">
+      <div className="w-3/5  lg:w-1/3 px-4">
         <Search />
       </div>
 
