@@ -1,4 +1,12 @@
 {
+
+// "compilerOptions": {
+//     "typeRoots": [
+//       "./node_modules/@types",
+//       "./src/types/splide-react.d.ts"
+//     ]
+//   },
+
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

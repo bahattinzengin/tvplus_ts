@@ -2,10 +2,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { options } from "../constant/constant";
 import '@splidejs/react-splide/css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+
+import  {Splide}  from '@splidejs/react-splide';
+import  {SplideSlide}  from '@splidejs/react-splide';
+
+// import Splide from '@splidejs/react-splide';
+// import SplideSlide from '@splidejs/react-splide';
+
+
+
 import { Link } from "react-router-dom";
 import { baseImageURL } from "../redux/actions/moviesActions";
 import { Genre, Movie } from "../type/Type";
+
+
 
 
 
@@ -48,7 +58,8 @@ const MovieList = ({ genre }: MovieListProps) => {
                 }} >
                 {movies?.map((movie:Movie) => (
 
-                    <SplideSlide key={movie.id} >
+                    <SplideSlide
+                     key={movie.id} >
                         <Link to={`/detail/${movie.id}`} >
                             <div className="w-[250px] h-[370px] border border-gray-500 rounded-md overflow-hidden">
                                 <img

@@ -9,7 +9,7 @@ import { ButtonConstantType } from "../type/Type";
 
 const Header = () => {
   return (
-    <div className=" flex justify-around items-center my-1 py-2 border-b border-b-gray-600 w-full  ">
+    <div className=" flex justify-around lg:justify-between items-center my-1 py-2 px-6 border-b border-b-gray-600 w-full  ">
 
       <figure>
         <Link to="/">
@@ -17,7 +17,7 @@ const Header = () => {
         </Link>
       </figure>
 
-      <div className="hidden lg:flex  justify-between w-[40%] mr-2  ">
+      <div className="hidden lg:flex  justify-between w-[40%] md:w-[50%] mr-2  ">
         {buttonConstant.map((item: ButtonConstantType) => (
           <div key={item.id} className="flex-grow">
             <NavLink
@@ -34,7 +34,7 @@ const Header = () => {
       </div>
 
 
-      <div className="w-1/5 xl:w-1/4">
+      <div className="w-3/5 md:w-2/5 lg:w-1/3 px-4">
         <Search />
       </div>
 

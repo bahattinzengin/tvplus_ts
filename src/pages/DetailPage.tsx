@@ -2,8 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { options } from "../constant/constant";
+import '@splidejs/react-splide/css';
 
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+
+// import  {Splide}  from "@splidejs/react-splide";
+// import  {SplideSlide}  from "@splidejs/react-splide";
+
+// import Splide from '@splidejs/react-splide';
+// import SplideSlide from '@splidejs/react-splide';
+
+
 import { baseImageURL } from "../redux/actions/moviesActions";
 import DetailSkeleton from "../components/Skeleton/DetailSkeleton";
 import ActorSkeleton from "../components/Skeleton/ActorSkeleton";

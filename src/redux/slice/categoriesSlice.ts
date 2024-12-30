@@ -1,19 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCategories, getPopuler, getTrending } from "../actions/movieCategoriesActions";
 import { CategoriesTypes } from "../../type/Type";
-// import { ApiResponse } from "../../type/Type";
 
-// interface Categories {
-//     populer: ApiResponse[];
-//     topRated:ApiResponse[],
-//     trending:ApiResponse[],
-//     isPopulerLoading:boolean,
-//     isPopulerError:boolean,
-//     isTopRatedLoading:boolean,
-//     isTopRatedError:boolean
-//     isTrendingLoading:boolean,
-//     isTrendingError:boolean,
-// }
 const initialState: CategoriesTypes = {
     populer: {
       page: 1,

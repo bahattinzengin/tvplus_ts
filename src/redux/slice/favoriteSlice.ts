@@ -1,18 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {  getFavorite, postFavorite } from "../actions/favoriteActions";
 import { FavoriteStateTypes } from "../../type/Type";
-// import { ApiResponse } from "../../type/Type";
-
-// interface Favorite {
-//    isFavoriteLoading: false;
-//     isFavorite: false;
-//     favorite: {
-//       page: 1
-//       results: []
-//       total_pages: 0
-//       total_results: 0
-//     }
-// }
 
 const initialState: FavoriteStateTypes = {
     isFavoriteLoading: false,

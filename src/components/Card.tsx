@@ -40,9 +40,7 @@ const Card = ({ item }: ItemPropsType) => {
     if (!isClick) {
       dispatch(postFavorite(item))
     }
-    // else {
-    //   dispatch(deleteFavorite(item))
-    // }
+   
   };
 
   const posterPath: string | undefined = item?.backdrop_path ? baseImageURL.concat(item.backdrop_path) : undefined;

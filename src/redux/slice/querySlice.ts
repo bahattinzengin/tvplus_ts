@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getQuery } from "../actions/queryActions";
 import { 
-    // ApiResponse,
+
      Movie } from "../../type/Type";
 
 interface Query {

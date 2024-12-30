@@ -54,17 +54,4 @@ export const postFavorite=createAsyncThunk(
    } 
 )
 
-
-// export const deleteFavorite = createAsyncThunk<ApiResponse, number>(
-//     "delete/favorite",
-//     async(favorite: newFavoriteType)=>{
-//         const favoriteData = {
-//             media_type: "movie",  
-//             media_id: favorite.id,  
-//             favorite: true,  
-           
-//           };
-//         }
-        
-// )
-
+ 
