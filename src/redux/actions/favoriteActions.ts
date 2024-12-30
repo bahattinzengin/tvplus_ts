@@ -15,7 +15,7 @@ export interface newFavoriteType {
     poster_path: string,
     release_date: number,
     title: string,
-    video: string,
+    video: boolean,
     vote_average: number,
     vote_count: number,
 }
@@ -57,9 +57,14 @@ export const postFavorite=createAsyncThunk(
 
 // export const deleteFavorite = createAsyncThunk<ApiResponse, number>(
 //     "delete/favorite",
-//     async (id: number) => {
-//         const res = await axios.delete(`https://api.themoviedb.org/3/account/21701101/favorite/${id}`,options)
-//         return res.data
-//     }
+//     async(favorite: newFavoriteType)=>{
+//         const favoriteData = {
+//             media_type: "movie",  
+//             media_id: favorite.id,  
+//             favorite: true,  
+           
+//           };
+//         }
+        
 // )
 

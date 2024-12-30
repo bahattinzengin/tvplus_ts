@@ -1,17 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {  getFavorite, postFavorite } from "../actions/favoriteActions";
-import { ApiResponse } from "../../type/Type";
+import { FavoriteStateTypes } from "../../type/Type";
+// import { ApiResponse } from "../../type/Type";
 
-interface Favorite {
-    favorite: ApiResponse[],
-    isFavoriteLoading: boolean,
-    isFavoriteError: boolean
-}
+// interface Favorite {
+//    isFavoriteLoading: false;
+//     isFavorite: false;
+//     favorite: {
+//       page: 1
+//       results: []
+//       total_pages: 0
+//       total_results: 0
+//     }
+// }
 
-const initialState: Favorite = {
-    favorite: [],
-    isFavoriteLoading: true,
-    isFavoriteError: false
+const initialState: FavoriteStateTypes = {
+    isFavoriteLoading: false,
+    isFavoriteError: false,
+    favorite: {
+      page: 1,
+      results: [],
+      total_pages: 0,
+      total_results: 0
+    }
 }
 
 
@@ -40,12 +51,11 @@ export const favoriteSlice = createSlice({
 
             // post
             .addCase(postFavorite.fulfilled, (state, action) => {
-                const isFavoriteExists = state.favorite.some(fav => fav.id === action.payload.id);
+                const isFavoriteExists = state.favorite.results.some(fav => fav.id === action.payload.id);
                 if (isFavoriteExists) {
-                    state.favorite = [...state.favorite, action.payload];
+                    state.favorite.results = [...state.favorite.results, action.payload];
                 }
             })
     }
 
 })
-export const {deleteFavorite } = favoriteSlice.actions;

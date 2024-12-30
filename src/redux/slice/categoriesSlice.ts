@@ -1,32 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCategories, getPopuler, getTrending } from "../actions/movieCategoriesActions";
-import { ApiResponse } from "../../type/Type";
+import { CategoriesTypes } from "../../type/Type";
+// import { ApiResponse } from "../../type/Type";
 
-interface Categories {
-    populer: ApiResponse[];
-    topRated:ApiResponse[],
-    trending:ApiResponse[],
-    isPopulerLoading:boolean,
-    isPopulerError:boolean,
-    isTopRatedLoading:boolean,
-    isTopRatedError:boolean
-    isTrendingLoading:boolean,
-    isTrendingError:boolean,
-}
-
-const initialState:Categories={
-    populer:[],
-    topRated:[],
-    trending:[],
-    isPopulerLoading:false,
-    isPopulerError:false,
-    isTopRatedLoading:false,
-    isTopRatedError:false,
-    isTrendingLoading:false,
-    isTrendingError:false,
-
-
-}
+// interface Categories {
+//     populer: ApiResponse[];
+//     topRated:ApiResponse[],
+//     trending:ApiResponse[],
+//     isPopulerLoading:boolean,
+//     isPopulerError:boolean,
+//     isTopRatedLoading:boolean,
+//     isTopRatedError:boolean
+//     isTrendingLoading:boolean,
+//     isTrendingError:boolean,
+// }
+const initialState: CategoriesTypes = {
+    populer: {
+      page: 1,
+      results: [],
+      total_pages: 0,
+      total_results: 0,
+    },
+    topRated: {
+      page: 1,
+      results: [],
+      total_pages: 0,
+      total_results: 0,
+    },
+    trending: {
+      page: 1,
+      results: [],
+      total_pages: 0,
+      total_results: 0,
+    },
+    isPopulerLoading: false,
+    isPopulerError: false,
+    isTopRatedLoading: false,
+    isTopRatedError: false,
+    isTrendingLoading: false,
+    isTrendingError: false,
+  };
 export const categoriesSlice=createSlice({
 name:'categories',
 initialState,
@@ -42,10 +55,11 @@ extraReducers:(builder)=>{
     .addCase(getPopuler.fulfilled,(state,action)=>{
         state.isPopulerLoading=false;
         state.populer=action.payload
+       
     })
     .addCase(getPopuler.rejected,(state)=>{
         state.isPopulerLoading=false;
-        state.isTopRatedError=true
+        state.isPopulerError =true
     })
 
     // TopRated

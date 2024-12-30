@@ -1,8 +1,9 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { buttonConstant } from '../constant/buttonConstant'
-import { ButtonConstantType } from './Header'
+// import { ButtonConstantType } from './Header'
 import { Link } from 'react-router-dom'
 import { TiThMenu } from "react-icons/ti";
+import { ButtonConstantType } from '../type/Type';
 
 
 export default function Example() {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Card from "../components/Card";
 import { getFavorite } from "../redux/actions/favoriteActions";
 import ListSkeleton from "../components/Skeleton/ListSkeleton";
-import { FavoriteState, Movie } from "../type/Type";
+import { FavoriteStateTypes, Movie } from "../type/Type";
 import { AppDispatch } from "../redux/store";
 
 
@@ -12,7 +12,7 @@ import { AppDispatch } from "../redux/store";
 
 const MyfavoriteMovies = () => {
   const dispatch = useDispatch<AppDispatch>()
-  const state = useSelector((store: { favorite: FavoriteState }) => store.favorite)
+  const state = useSelector((store: { favorite: FavoriteStateTypes }) => store.favorite)
 
  
 
@@ -21,6 +21,9 @@ const MyfavoriteMovies = () => {
   useEffect(() => {
     dispatch(getFavorite())
   }, [])
+
+  console.log(state);
+  
 
   const favoriteMovies = state.favorite.results ?? []; 
 
@@ -35,7 +38,7 @@ const MyfavoriteMovies = () => {
         {favoriteMovies.length > 0 ? (
           favoriteMovies.map((item: Movie) => (
             <div key={item.id}>
-              <Card item={item} />
+              <Card item={{ ...item, release_date: Number(item.release_date) }} />
             </div>
           ))
         ) : (

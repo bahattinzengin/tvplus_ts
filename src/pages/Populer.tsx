@@ -31,6 +31,9 @@ interface PopulerMovie {
 const Populer = () => {
   const dispatch = useDispatch<AppDispatch>()
   const state = useSelector((store: {categories:CategoriesState}) => store.categories)
+  console.log("populer",state);
+
+  
 
 
   useEffect(() => {
@@ -43,6 +46,9 @@ const Populer = () => {
     return <ListSkeleton />;
   }
 
+  console.log(state );
+  
+
   return (
     <div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-items-center  gap-4 m-3">
@@ -50,7 +56,7 @@ const Populer = () => {
         {populerMovies.length > 0 ? (
           populerMovies.map((item: PopulerMovie) => (
             <div key={item.id}>
-              <Card item={item} />
+             <Card item={{ ...item, release_date: Number(item.release_date) }} />
             </div>
           ))
         ) : (

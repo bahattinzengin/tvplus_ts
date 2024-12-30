@@ -46,7 +46,7 @@ const TrendingPage = () => {
         {trendingMovies.length > 0 ? (
           trendingMovies.map((item: trendingMoviesType) => (
             <div key={item.id}>
-              <Card item={item} />
+            <Card item={{ ...item, release_date: Number(item.release_date) }} />
             </div>
           ))
         ) : (

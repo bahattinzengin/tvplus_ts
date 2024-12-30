@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Heart from "react-animated-heart";
 import { useDispatch, useSelector } from "react-redux";
 import { newFavoriteType, postFavorite } from "../redux/actions/favoriteActions";
-import { deleteFavorite } from "../redux/slice/favoriteSlice";
+
 import ImgSkeleton from "./Skeleton/ImgSkeleton";
-import { FavoriteState } from "../type/Type";
+import {  FavoriteStateTypes } from "../type/Type";
 import { AppDispatch } from "../redux/store";
 
 
@@ -21,7 +21,7 @@ type ItemPropsType = {
 
 
 const Card = ({ item }: ItemPropsType) => {
-  const state = useSelector((store: { favorite: FavoriteState }) => store.favorite)
+  const state = useSelector((store: { favorite: FavoriteStateTypes }) => store.favorite)
   const [isClick, setClick] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>()
 
@@ -40,9 +40,9 @@ const Card = ({ item }: ItemPropsType) => {
     if (!isClick) {
       dispatch(postFavorite(item))
     }
-    else {
-      dispatch(deleteFavorite(item.id))
-    }
+    // else {
+    //   dispatch(deleteFavorite(item))
+    // }
   };
 
   const posterPath: string | undefined = item?.backdrop_path ? baseImageURL.concat(item.backdrop_path) : undefined;

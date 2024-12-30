@@ -28,6 +28,9 @@ type TopRatedType = {
 const TopRated = () => {
   const dispatch=useDispatch<AppDispatch>()
   const state=useSelector((store:{categories:CategoriesState})=>store.categories)
+console.log(state);
+
+
   useEffect(()=>{
     dispatch(getCategories())
   },[])
@@ -46,7 +49,7 @@ const TopRated = () => {
       {TopRatedMovies.length > 0 ? (
         TopRatedMovies.map((item: TopRatedType) => (
           <div key={item.id}>
-            <Card item={item} />
+            <Card item={{ ...item, release_date: Number(item.release_date) }} />
           </div>
         ))
       ) : (

@@ -1,9 +1,11 @@
-import { useEffect } from "react"
-import { getQuery } from "../redux/actions/queryActions";
-import { useDispatch, useSelector } from "react-redux"
+// import { useEffect } from "react"
+// import { getQuery } from "../redux/actions/queryActions";
+import {
+  //  useDispatch,
+    useSelector } from "react-redux"
 import Card from "../components/Card";
 import ListSkeleton from "../components/Skeleton/ListSkeleton";
-import { AppDispatch } from "../redux/store";
+// import { AppDispatch } from "../redux/store";
 
 
 type queryMoviesType = {
@@ -16,7 +18,7 @@ type queryMoviesType = {
   overview: string;
   popularity: number;
   poster_path: string;
-  release_date: string;
+  release_date: number;
   title: string;
   video: boolean;
   vote_average: number;
@@ -36,12 +38,12 @@ interface QueryState {
 
 
 const QueryPage = () => {
-    const dispatch=useDispatch<AppDispatch>();
+    // const dispatch=useDispatch<AppDispatch>();
     const state=useSelector((store:{query:QueryState})=>store.query)
 
-useEffect(()=>{
-dispatch(getQuery())
-},[])
+// useEffect(()=>{
+// dispatch(getQuery())
+// },[])
 const queryMovies=state.query.results ??[];
 if(state.isQueryLoading){
   return <ListSkeleton/>
@@ -58,7 +60,7 @@ if(state.isQueryLoading){
       {queryMovies.length > 0 ? (
         queryMovies.map((item: queryMoviesType) => (
           <div key={item.id}>
-            <Card item={item} />
+         <Card item={{ ...item, release_date: new Date(item.release_date).getTime() }} />
           </div>
         ))
       ) : (

@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getQuery } from "../actions/queryActions";
-import { ApiResponse } from "../../type/Type";
+import { 
+    // ApiResponse,
+     Movie } from "../../type/Type";
 
 interface Query {
-    query: ApiResponse[],
+    query: {
+          page: number,
+          results: Movie[],
+          total_pages: number
+          total_results: number
+        }
     isQueryLoading: boolean,
     isQueryError: boolean  ,
     isClick:boolean
@@ -11,7 +18,12 @@ interface Query {
 
 
 const initialState:Query={
-    query:[],
+    query: {
+        page: 0,
+        results: [],
+        total_pages: 0,
+        total_results: 0
+      },
     isQueryLoading: false,
     isQueryError: false ,
     isClick:false
@@ -39,4 +51,3 @@ export const querySlice=createSlice({
     }
 })
 
-export const { toggleFavorite } = querySlice.actions;

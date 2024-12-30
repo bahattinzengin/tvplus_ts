@@ -1,11 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getGenre, getMovies } from "../actions/moviesActions";
-import { ApiResponse } from "../../type/Type";
+import { 
+    // ApiResponse,
+     Movie } from "../../type/Type";
 
 
 interface MovieState {
-    movies:ApiResponse[],
-    genre: ApiResponse[],
+     movies: {
+        page: number
+        results: Movie[]
+        total_pages: number
+        total_results: number
+      },
+    genre: {
+       page: number
+       results: Movie[]
+       total_pages: number
+       total_results: number
+     }
     isMoviesLoading: boolean,
     isGeneresLoading: boolean,
     isMoviesError: boolean,
@@ -13,8 +25,18 @@ interface MovieState {
 }
 
 const initialState: MovieState = {
-    movies: [],
-    genre: [],
+    movies: {
+        page: 0,
+        results:[],
+        total_pages: 0,
+        total_results: 0,
+      },
+    genre: {
+        page: 0,
+        results:[],
+        total_pages: 0,
+        total_results: 0,
+      },
     isMoviesLoading: false,
     isGeneresLoading: false,
     isMoviesError: false,
@@ -37,6 +59,8 @@ export const movieSlice = createSlice({
             .addCase(getMovies.fulfilled, (state, action) => {
                 state.isMoviesLoading = false;
                 state.movies = action.payload;
+                console.log( state.movies);
+                
             })
             .addCase(getMovies.rejected, (state) => {
                 state.isMoviesLoading = false;

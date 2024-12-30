@@ -4,7 +4,7 @@ import { options } from "../../constant/constant";
 import { ApiResponse } from "../../type/Type";
 
 
-export const getQuery=createAsyncThunk<ApiResponse, string>(
+export const getQuery=createAsyncThunk<ApiResponse,string>(
     "query",
     async(query)=>{
         const res =await axios.get(`/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,options);
